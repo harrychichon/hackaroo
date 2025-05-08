@@ -1,4 +1,3 @@
-import { iconMap } from '@/constants';
 import Image from 'next/image';
 import styles from './IconButton.module.scss';
 
