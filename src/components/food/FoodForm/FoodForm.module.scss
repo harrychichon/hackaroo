@@ -1,0 +1,61 @@
+$gray-bg: #d4d4d4;
+$gray-input: #c0c0c0;
+
+.form {
+  display: flex;
+  background-color: $gray-bg;
+  padding: 2rem;
+  max-width: 400px;
+  margin: 2rem auto;
+  flex-direction: column;
+  gap: 1rem;
+  font-family: sans-serif;
+  color: black;
+
+  label {
+    display: flex;
+    flex-direction: column;
+    font-weight: 500;
+    gap: 0.25rem;
+
+    input[type="text"],
+    input[type="date"],
+    input[type="file"],
+    textarea {
+      background-color: $gray-input;
+      border: none;
+      height: 1.5rem;
+      padding: 0.2rem;
+    }
+
+    textarea {
+      height: 5rem;
+      resize: vertical;
+    }
+  }
+
+  .tag-section {
+    p {
+      margin: 0;
+      font-weight: 500;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+  }
+
+  .tags label {
+    flex-direction: row;
+  }
+
+  button {
+    align-self: flex-end;
+    border: none;
+    padding: 0.5rem 1rem;
+    font-weight: bold;
+    cursor: pointer;
+  }
+}
