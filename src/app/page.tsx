@@ -1,10 +1,13 @@
-import MealCard from '@/components/meal/MealCard/MealCard';
-import styles from './page.module.css';
+import { MealProvider } from '@/contexts/MealProvider';
+import styles from './page.module.scss';
 
 export default function Home() {
 	return (
-		<div className={styles.page}>
-			<MealCard ingredients={['Abborre']} />
-		</div>
+		<MealProvider>
+			<div className={styles.page}>
+				<h1>Welcome to MealShare</h1>
+				<p>Share your meals with the world!</p>
+			</div>
+		</MealProvider>
 	);
 }

@@ -1,0 +1,51 @@
+@use '@/styles/variables' as *;
+
+.page {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: 2rem 1rem 6rem; // bottom room for navbar
+	background: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%);
+	min-height: 100vh;
+	gap: 2rem;
+}
+
+.header {
+	display: flex;
+	align-items: center;
+	gap: 1rem;
+	margin-bottom: 1rem;
+	padding: 1rem;
+	width: 100%;
+	max-width: 700px;
+
+	h1 {
+		font-size: 1.5rem;
+		margin-bottom: 0.25rem;
+		color: #1f1f1f;
+	}
+
+	p {
+		color: #333;
+		font-size: 0.95rem;
+	}
+}
+
+.avatar {
+	width: 60px;
+	height: 60px;
+	border-radius: 50%;
+	object-fit: cover;
+	box-shadow: $shadow-soft;
+	background: #ddd;
+}
+
+.glassSection {
+	width: 100%;
+	max-width: 600px;
+	padding: 2rem;
+	border-radius: 2rem;
+	background: rgba(255, 255, 255, 0.4);
+	backdrop-filter: blur(18px);
+	box-shadow: $shadow-soft;
+}

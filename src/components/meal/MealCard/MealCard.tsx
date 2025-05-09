@@ -1,37 +1,61 @@
 'use client';
 
 import Tag from '@/components/ui/Tag/Tag';
-import { Ingredient } from '@/constants/ingredientCategories';
+import { useMealContext } from '@/contexts/MealProvider';
+import { Meal } from '@/types/Meal';
 import { getMatchingTags } from '@/utils/getMatchingTags';
 import Image from 'next/image';
 import styles from './MealCard.module.scss';
 
-type MealCardProps = {
-	ingredients: Ingredient[];
-};
+type MealCardProps = Meal;
 
-const MealCard = ({ ingredients }: MealCardProps) => {
+const MealCard = ({
+	name,
+	description,
+	image,
+	ingredients,
+	location,
+	expirationDate,
+	_id,
+}: MealCardProps) => {
+	const { dispatch } = useMealContext();
+
 	const tags = getMatchingTags(ingredients);
 
 	return (
 		<article className={styles.mealCard}>
+			<button
+				className={styles.removeBtn}
+				onClick={() => dispatch({ type: 'REMOVE_MEAL', payload: _id })}
+				aria-label={`Ta bort ${name}`}>
+				×
+			</button>
 			<header className={styles.header}>
-				<h2>Meal Name</h2>
-				<p>Meal Description</p>
+				<h2>{name}</h2>
+				<p>{description}</p>
 			</header>
 			<div className={styles.imageWrapper}>
 				<Image
 					className={styles.image}
-					src='/testImages/pexels-photo-1860208-3096156442.jpeg'
-					alt='Meal'
+					src={image}
+					alt={name}
 					fill
 				/>
 			</div>
+			<div className={styles.meta}>
+				<p>
+					<strong>Plats:</strong> {location}
+				</p>
+				<p>
+					<strong>Bäst före:</strong> {expirationDate}
+				</p>
+			</div>
+
 			<div className={styles.tags}>
 				{tags.map((tag) => (
 					<Tag
 						key={tag}
-						text={tag} // Now supports both string and number
+						text={tag}
 					/>
 				))}
 			</div>
