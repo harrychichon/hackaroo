@@ -1,12 +1,26 @@
 .tag {
-	padding: 8px 12px;
-	border-radius: 5px;
-	font-size: 14px;
-	font-weight: bold;
+	display: inline-block;
+	padding: 6px 14px;
+	border-radius: 999px;
+	font-size: 0.85rem;
+	font-weight: 600;
 	color: #fff;
-	background-color: #3498db;
+	background: linear-gradient(135deg, #3498db, #2980b9);
+	box-shadow: 0 4px 10px rgba(52, 152, 219, 0.4);
+	backdrop-filter: blur(4px);
+	transition: transform 0.2s ease, box-shadow 0.3s ease;
+
+	&:hover {
+		transform: scale(1.1);
+		box-shadow: 0 6px 14px rgba(52, 152, 219, 0.6);
+	}
 
 	&.secondary {
-		background-color: #2ecc71;
+		background: linear-gradient(135deg, #2ecc71, #27ae60);
+		box-shadow: 0 4px 10px rgba(46, 204, 113, 0.4);
+
+		&:hover {
+			box-shadow: 0 6px 14px rgba(46, 204, 113, 0.6);
+		}
 	}
 }
