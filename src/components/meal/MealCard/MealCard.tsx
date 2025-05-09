@@ -3,6 +3,7 @@
 import Tag from '@/components/ui/Tag/Tag';
 import { useMealContext } from '@/contexts/MealProvider';
 import { Meal } from '@/types/Meal';
+import { getDaysLeft } from '@/utils/getDaysLeft';
 import { getMatchingTagIndexes } from '@/utils/getMatchingTagIndexes';
 import Image from 'next/image';
 import { useState } from 'react';
@@ -24,6 +25,7 @@ const MealCard = ({
 	const [isClaimed, setIsClaimed] = useState(false);
 
 	const tags = getMatchingTagIndexes(ingredients);
+	const daysLeft = getDaysLeft(expirationDate);
 
 	return (
 		<article
@@ -57,9 +59,18 @@ const MealCard = ({
 				<p>
 					<strong>Plats:</strong> {location}
 				</p>
-				<p>
-					<strong>Bäst före:</strong> {expirationDate}
-				</p>
+				<div>
+					Bäst före: {expirationDate}
+					<div
+						className={
+							daysLeft >= 0
+								? styles.daysLeft
+								: `${styles.daysLeft} ${styles.expired}`
+						}>
+						{daysLeft >= 0 ? ` (om ${daysLeft} dagar)` : ' (Har gått ut)'}
+					</div>
+				</div>
+				{/* resten av kortet */}
 			</div>
 
 			<div className={styles.tags}>

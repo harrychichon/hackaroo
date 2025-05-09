@@ -264,3 +264,12 @@
 	transform: translateY(0);
 	pointer-events: auto;
 }
+
+.daysLeft {
+	color: rgb(117, 235, 39);
+	font-weight: bold;
+}
+.expired {
+	color: rgb(255, 0, 0);
+	font-weight: bolder;
+}

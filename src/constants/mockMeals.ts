@@ -26,7 +26,7 @@ export const mockMeals: Meal[] = [
 		name: 'Laxpasta med Dill',
 		description: 'Krämig pasta med färsk dill och rökt lax.',
 		image: '/assets/laxpasta.png',
-		ingredients: ['Lök', 'Kyckling', 'Kål', 'Zucchini'],
+		ingredients: ['Lök', 'Lax', 'Kål', 'Zucchini'],
 		location: 'Lundby Park',
 		expirationDate: '2025-05-12',
 		isMine: false,

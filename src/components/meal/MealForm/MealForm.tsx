@@ -142,6 +142,7 @@ const MealForm = () => {
 					type='date'
 					id='expirationDate'
 					name='expirationDate'
+					defaultValue={new Date().toISOString().split('T')[0]}
 					required
 				/>
 			</div>

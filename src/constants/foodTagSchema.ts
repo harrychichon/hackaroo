@@ -20,20 +20,18 @@ export const TAG_RULES: FoodTag[] = [
 	},
 	{
 		label: 'Glutenfri',
-		excludeIngredients: ['Vete', 'Råg', 'Korn', 'Spelt', 'Graham'],
+		excludeIngredients: getIngredients(['BrödOchSpannmål']),
 	},
 	{
 		label: 'Halal',
-		excludeIngredients: getIngredients(['Fläsk', 'Övrigt']).filter((i) =>
-			[
-				'Fläskfilé',
-				'Fläskkotlett',
-				'Gris ister',
-				'Gris späck',
-				'Alkohol',
-				'Vinäger',
-			].some((a) => i.includes(a))
-		),
+		excludeIngredients: [
+			'Fläskfilé',
+			'Fläskkotlett',
+			'Gris ister',
+			'Gris späck',
+			'Alkohol',
+			'Vinäger',
+		],
 	},
 	{
 		label: 'Jordnötter',
@@ -62,15 +60,19 @@ export const TAG_RULES: FoodTag[] = [
 			'NötterOchFrön',
 			'Fläsk',
 			'Fisk',
+			'KycklingOchFågel',
 			'Mjölkprodukter',
 			'Skaldjur',
+			'Nötkött',
 		]),
 	},
 	{
 		label: 'Pescetariansk',
-		excludeIngredients: getIngredients(['Grönsaker']).filter((i) =>
-			['Kyckling', 'Fågel'].some((k) => i.includes(k))
-		),
+		excludeIngredients: getIngredients([
+			'Fläsk',
+			'Nötkött',
+			'KycklingOchFågel',
+		]),
 	},
 	{
 		label: 'Selleri',
@@ -90,11 +92,11 @@ export const TAG_RULES: FoodTag[] = [
 	},
 	{
 		label: 'Sojabönor',
-		includeIngredients: getIngredients(['BaljväxterOchSvamp']),
+		includeIngredients: ['Soja', 'Sojabönor', 'Sojasås', 'Tofu'],
 	},
 	{
 		label: 'Sojafri',
-		excludeIngredients: getIngredients(['BaljväxterOchSvamp']),
+		excludeIngredients: ['Soja', 'Sojabönor', 'Sojasås', 'Tofu'],
 	},
 	{
 		label: 'Sockerfri',
@@ -106,9 +108,13 @@ export const TAG_RULES: FoodTag[] = [
 	},
 	{
 		label: 'Vegetarisk',
-		excludeIngredients: getIngredients(['Fisk', 'Skaldjur']).filter((i) =>
-			['Fisk', 'Skaldjur', 'Kyckling', 'Fågel'].some((k) => i.includes(k))
-		),
+		excludeIngredients: getIngredients([
+			'Fisk',
+			'Skaldjur',
+			'Fläsk',
+			'Nötkött',
+			'KycklingOchFågel',
+		]),
 	},
 	{
 		label: 'Vegansk',
@@ -116,8 +122,10 @@ export const TAG_RULES: FoodTag[] = [
 			'Fisk',
 			'Skaldjur',
 			'Fläsk',
+			'Nötkött',
 			'NötterOchFrön',
 			'ÄggOchRomOchKaviar',
+			'Mjölkprodukter',
 			'Övrigt',
 		]).filter((i) =>
 			[
@@ -133,15 +141,14 @@ export const TAG_RULES: FoodTag[] = [
 		),
 	},
 	{
-		label: 'Ägg',
-		includeIngredients: ['Ägg', 'Äggula', 'Äggvita'],
-	},
-	{
 		label: 'Laktovegetarisk',
-		excludeIngredients: getIngredients(['Fläsk', 'Fisk']).filter((i) =>
-			['Ägg', 'Rom', 'Kaviar', 'Nötkött', 'Kyckling'].some((term) =>
-				i.includes(term)
-			)
-		),
+		excludeIngredients: getIngredients([
+			'Fisk',
+			'Skaldjur',
+			'Fläsk',
+			'Nötkött',
+			'KycklingOchFågel',
+			'ÄggOchRomOchKaviar',
+		]),
 	},
 ];
