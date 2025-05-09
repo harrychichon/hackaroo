@@ -70,7 +70,6 @@ const MealCard = ({
 						{daysLeft >= 0 ? ` (om ${daysLeft} dagar)` : ' (Har gått ut)'}
 					</div>
 				</div>
-				{/* resten av kortet */}
 			</div>
 
 			<div className={styles.tags}>
