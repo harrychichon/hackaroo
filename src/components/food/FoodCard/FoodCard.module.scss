@@ -1,2 +1,42 @@
 .card {
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  overflow: hidden;
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+  max-width: 400px;
+}
+
+.imageWrapper {
+  position: relative;
+  width: 100%;
+  height: 200px;
+}
+
+.image {
+  object-fit: cover;
+  border-bottom: 1px solid #eee;
+}
+
+.content {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.place {
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.description {
+  font-size: 1rem;
+  color: #444;
+}
+
+.diet,
+.sustainability {
+  font-size: 0.9rem;
+  color: #666;
 }
