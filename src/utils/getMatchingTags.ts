@@ -1,17 +1,8 @@
 import { TAG_RULES } from '@/constants/foodTagSchema';
-import type { Ingredient } from '@/constants/ingredientCategories';
+import { Ingredient } from '@/constants/ingredientCategories';
+import { getMatchingTagIndexes } from './getMatchingTagIndexes';
 
-export const getMatchingTags = (ingredients: Ingredient[]): number[] => {
-	return TAG_RULES.flatMap((tag, index) => {
-		const hasIncludes =
-			tag.includeIngredients?.some((i) => ingredients.includes(i)) ?? false;
-
-		const hasExcludes =
-			tag.excludeIngredients?.some((i) => ingredients.includes(i)) ?? false;
-
-		const matchesIncludes = !tag.includeIngredients || hasIncludes;
-		const matchesExcludes = !tag.excludeIngredients || !hasExcludes;
-
-		return matchesIncludes && matchesExcludes ? [index] : [];
-	});
+export const getMatchingTagLabels = (ingredients: Ingredient[]): string[] => {
+	const indexes = getMatchingTagIndexes(ingredients);
+	return indexes.map((i) => TAG_RULES[i]?.label).filter(Boolean);
 };

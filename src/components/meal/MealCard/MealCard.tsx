@@ -3,7 +3,7 @@
 import Tag from '@/components/ui/Tag/Tag';
 import { useMealContext } from '@/contexts/MealProvider';
 import { Meal } from '@/types/Meal';
-import { getMatchingTags } from '@/utils/getMatchingTags';
+import { getMatchingTagIndexes } from '@/utils/getMatchingTagIndexes';
 import Image from 'next/image';
 import styles from './MealCard.module.scss';
 
@@ -20,7 +20,7 @@ const MealCard = ({
 }: MealCardProps) => {
 	const { dispatch } = useMealContext();
 
-	const tags = getMatchingTags(ingredients);
+	const tags = getMatchingTagIndexes(ingredients);
 
 	return (
 		<article className={styles.mealCard}>

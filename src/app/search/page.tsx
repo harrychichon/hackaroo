@@ -3,7 +3,7 @@
 import MealCard from '@/components/meal/MealCard/MealCard';
 import { TAG_RULES } from '@/constants/foodTagSchema';
 import { useMealContext } from '@/contexts/MealProvider';
-import { getMatchingTags } from '@/utils/getMatchingTags';
+import { getMatchingTagLabels } from '@/utils/getMatchingTags';
 import { useState } from 'react';
 import styles from './page.module.scss';
 
@@ -27,8 +27,9 @@ export default function SearchPage() {
 		const hasTagMatch =
 			activeTags.length === 0 ||
 			activeTags.some((tag) =>
-				getMatchingTags(meal.ingredients).map(String).includes(tag)
+				getMatchingTagLabels(meal.ingredients).map(String).includes(tag)
 			);
+		console.log('tags for', meal.name, getMatchingTagLabels(meal.ingredients));
 
 		const matchesLocation =
 			selectedLocation === '' || meal.location === selectedLocation;

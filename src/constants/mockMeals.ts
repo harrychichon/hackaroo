@@ -41,7 +41,7 @@ export const mockMeals: Meal[] = [
 		_id: '3094d23d-d11d-4469-aadd-b5f43a1f67a7',
 		name: 'Halal Kycklingcurry',
 		description: 'Mild kokoskyckling serverad med ris.',
-		image: '/assets/halal-kycklingcurry.jpg',
+		image: '/assets/Kycklingcurry.jpg',
 		ingredients: ['Morot', 'Banan', 'Kikärter', 'Äpple'],
 		location: 'Angereds Moské',
 		expirationDate: '2025-05-12',
