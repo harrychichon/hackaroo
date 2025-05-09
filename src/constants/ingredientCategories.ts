@@ -11,6 +11,7 @@ export const INGREDIENTS = [
 	'Bacon',
 	'Banan',
 	'Bananchips',
+	'Biff',
 	'Björnbär',
 	'Bläckfisk',
 	'Blåbär',
@@ -136,6 +137,8 @@ export const INGREDIENTS = [
 	'Nektarin',
 	'Nypon',
 	'Nätmelon',
+	'Nötfärs',
+	'Nötkött',
 	'Nöt talg',
 	'Odon',
 	'Olivolja',
@@ -263,6 +266,7 @@ export const INGREDIENT_CATEGORIES = [
 	'Grönsaker',
 	'Mjölkprodukter',
 	'NötterOchFrön',
+	'Nötkött',
 	'Skaldjur',
 	'SockerOchSötningsmedel',
 	'ÄggOchRomOchKaviar',
@@ -424,6 +428,7 @@ export const INGREDIENTS_BY_CATEGORY: Record<IngredientCategory, Ingredient[]> =
 			'Mjölk',
 			'Grädde',
 		],
+		Nötkött: ['Biff', 'Kalvbuljong', 'Köttbuljong', 'Nötfärs', 'Nötkött'],
 
 		NötterOchFrön: [
 			'Cashewnötter',

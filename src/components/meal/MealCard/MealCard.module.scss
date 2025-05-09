@@ -2,9 +2,18 @@
 
 .mealCard {
 	position: relative;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-between;
+	box-sizing: border-box;
 	width: 92vw;
 	max-width: 360px;
 	height: 720px;
+	padding: 1.5rem;
+	gap: 1rem;
+	overflow: hidden;
+
 	background: rgba(255, 255, 255, 0.781);
 	backdrop-filter: blur(18px) saturate(180%);
 	-webkit-backdrop-filter: blur(18px) saturate(180%);
@@ -12,31 +21,34 @@
 	border-radius: 2rem;
 	box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08),
 		0 0 0 1px rgba(255, 255, 255, 0.2) inset;
+
 	color: #222;
-	display: flex;
-	flex-direction: column;
-	justify-content: space-between;
-	align-items: center;
-	box-sizing: border-box;
-	overflow: hidden;
-	transition: transform 0.35s ease, box-shadow 0.35s ease;
-	padding: 1.5rem;
-	gap: 1rem;
-	transition: filter 0.6s ease, opacity 0.6s ease;
+	transition: transform 0.35s ease, box-shadow 0.35s ease, filter 0.6s ease,
+		opacity 0.6s ease;
+
 	&:hover {
 		transform: perspective(800px) rotateX(1.5deg) rotateY(-1.5deg) scale(1.015);
 		box-shadow: 0 16px 32px rgba(0, 0, 0, 0.15),
 			0 0 0 1px rgba(255, 255, 255, 0.25) inset;
 	}
 }
-.claimed {
-	filter: grayscale(0.2) brightness(0.9);
-	opacity: 0.3;
+
+.claimedCard {
+	opacity: 0.6;
+	transform: scale(0.97);
+	filter: blur(1px);
+	pointer-events: none;
+	transition: all 0.4s ease;
 }
+
+// ─────────────────────────────────────
+// Header
+// ─────────────────────────────────────
+
 .header {
+	text-align: center;
 	padding-bottom: 1rem;
 	border-image: linear-gradient(90deg, #d2ff05, #05ff32) 1;
-	text-align: center;
 
 	h2 {
 		font-size: 1.5rem;
@@ -50,28 +62,68 @@
 	}
 }
 
+// ─────────────────────────────────────
+// Image
+// ─────────────────────────────────────
+
 .imageWrapper {
 	width: 100%;
 	height: 180px;
+	position: relative;
+	margin: 1rem 0 2rem;
 	border-radius: 1rem;
 	overflow: hidden;
-	margin-bottom: 2rem;
-	margin-top: 1rem;
 	box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
-	position: relative;
 
 	.image {
 		width: 100%;
 		height: 100%;
 		object-fit: cover;
-		transition: transform 0.5s ease;
 		border-radius: inherit;
+		transition: transform 0.5s ease;
 	}
 
 	.mealCard:hover & .image {
 		transform: scale(1.07);
 	}
 }
+
+// ─────────────────────────────────────
+// Tags
+// ─────────────────────────────────────
+
+.tags {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	gap: 0.4rem;
+	margin: 0.5rem 0 1rem;
+
+	> * {
+		padding: 6px 12px;
+		font-size: 0.75rem;
+		font-weight: 600;
+		letter-spacing: 0.3px;
+		text-transform: uppercase;
+		color: #2c3e50;
+
+		border-radius: 999px;
+		background: rgba(255, 255, 255, 0.45);
+		backdrop-filter: blur(10px);
+		border: 1px solid rgba(255, 255, 255, 0.3);
+
+		transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+		&:hover {
+			transform: scale(1.1);
+			box-shadow: 0 4px 8px rgba(0, 0, 0, 0.06);
+		}
+	}
+}
+
+// ─────────────────────────────────────
+// Meta Info (location, expiry, etc.)
+// ─────────────────────────────────────
 
 .meta {
 	margin-top: 0.5rem;
@@ -83,32 +135,55 @@
 	}
 }
 
-.tags {
+// ─────────────────────────────────────
+// Top Row: Badge + Remove Button
+// ─────────────────────────────────────
+
+.topBar {
 	display: flex;
-	flex-wrap: wrap;
-	justify-content: center;
-	gap: 0.4rem;
-	margin: 0.5rem 0 1rem;
+	justify-content: space-between;
+	align-items: center;
+	width: 100%;
+}
 
-	> * {
-		background: rgba(255, 255, 255, 0.45);
-		backdrop-filter: blur(10px);
-		border: 1px solid rgba(255, 255, 255, 0.3);
-		border-radius: 999px;
-		padding: 6px 12px;
-		font-size: 0.75rem;
-		color: #2c3e50;
-		font-weight: 600;
-		text-transform: uppercase;
-		letter-spacing: 0.3px;
-		transition: transform 0.2s ease, box-shadow 0.2s ease;
+.ownerBadge {
+	position: static;
+	background: #d2ff05;
+	color: #000;
+	font-size: 0.75rem;
+	font-weight: bold;
+	padding: 0.3rem 0.75rem;
+	border-radius: 999px;
+	box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+	z-index: 10;
+}
 
-		&:hover {
-			transform: scale(1.1);
-			box-shadow: 0 4px 8px rgba(0, 0, 0, 0.06);
-		}
+.removeBtn {
+	position: static;
+	margin: 1rem;
+	background: none;
+	border: none;
+	color: #1f1f1f;
+	font-size: 1.5rem;
+	font-weight: bold;
+	cursor: pointer;
+	z-index: 10;
+
+	transition: transform 0.1s ease, color 0.2s ease;
+
+	&:hover {
+		color: #d00000;
+		transform: scale(1.1);
+	}
+
+	&:active {
+		transform: scale(0.95);
 	}
 }
+
+// ─────────────────────────────────────
+// Action Buttons (Own / Wish / Claim)
+// ─────────────────────────────────────
 
 .buttonContainer {
 	width: 100%;
@@ -124,10 +199,11 @@
 		border-radius: 1rem;
 		font-weight: 600;
 		letter-spacing: 0.3px;
-		background: linear-gradient(135deg, #f9d976, #f39f86);
 		color: #fff;
 		cursor: pointer;
+		background: linear-gradient(135deg, #f9d976, #f39f86);
 		box-shadow: 0 6px 14px rgba(243, 159, 134, 0.35);
+
 		transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.3s ease;
 
 		&:hover {
@@ -138,82 +214,15 @@
 	}
 }
 
-.topBar {
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	justify-items: flex-end;
-	width: 100%;
-}
-
-.removeBtn {
-	position: static;
-	top: 0.15rem;
-	right: 0.15rem;
-	background: none;
-	border: none;
-	color: #1f1f1f;
-	font-size: 1.5rem;
-	font-weight: bold;
-	cursor: pointer;
-	z-index: 10;
-	transition: transform 0.1s ease, color 0.2s ease;
-	margin: 1rem;
-
-	&:hover {
-		color: #d00000;
-		transform: scale(1.1);
-	}
-
-	&:active {
-		transform: scale(0.95);
-	}
-}
-
-.ownerBadge {
-	position: static;
-	top: 1.3rem;
-	left: 0.75rem;
-	background: #d2ff05;
-	color: #000;
-	font-size: 0.75rem;
-	font-weight: bold;
-	padding: 0.3rem 0.75rem;
-	border-radius: 999px;
-	box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-	z-index: 10;
-}
-
-.wishBtn {
-	background: #05ff32;
-	color: #000;
-	padding: 0.5rem 1rem;
-	border-radius: 999px;
-	font-weight: bold;
-	border: none;
-	cursor: pointer;
-	font-size: 0.9rem;
-	box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
-	transition: transform 0.2s ease;
-
-	&:hover {
-		transform: translateY(-2px);
-		box-shadow: 0 4px 12px rgba(5, 255, 50, 0.3);
-	}
-
-	&:active {
-		transform: scale(0.97);
-	}
-}
-
 .claimArea {
 	position: relative;
 	height: 2.75rem;
 	width: 100%;
 	margin-top: 1rem;
 }
-.wishBtn,
-.claimedText {
+
+.claimedText,
+.wishBtn {
 	position: absolute;
 	inset: 0;
 	width: 100%;
@@ -223,6 +232,7 @@
 	justify-content: center;
 	transition: opacity 0.3s ease, transform 0.3s ease;
 }
+
 .wishBtn {
 	background: #05ff32;
 	color: #000;
@@ -234,13 +244,7 @@
 	box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
 	opacity: 1;
 }
-.claimedCard {
-	opacity: 0.6;
-	transform: scale(0.97);
-	transition: all 0.4s ease;
-	pointer-events: none;
-	filter: blur(1px);
-}
+
 .claimedText {
 	color: #05ff32;
 	font-weight: bold;
@@ -248,6 +252,7 @@
 	transform: translateY(10px);
 	pointer-events: none;
 }
+
 .claimArea:has(.claimedText) .wishBtn {
 	opacity: 0;
 	transform: translateY(-10px);

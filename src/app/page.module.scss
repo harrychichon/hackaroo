@@ -6,23 +6,24 @@
 	align-items: center;
 	justify-content: center;
 	text-align: center;
+	gap: 1.5rem;
 	padding: 3rem 1.5rem 6rem;
 	min-height: 100vh;
 	background: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%);
-	gap: 1.5rem;
+
 	h1 {
 		font-size: 2rem;
+		font-weight: 800;
 		background: $gradient-primary;
 		-webkit-background-clip: text;
 		-webkit-text-fill-color: transparent;
-		font-weight: 800;
 		text-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 	}
 
 	p {
 		font-size: 1.3rem;
-		color: $accent-a;
 		font-weight: 1000;
+		color: $accent-a;
 		text-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 	}
 }
