@@ -23,7 +23,7 @@ export default function MyProfile() {
 				<MealForm />
 			</section>
 
-			<MealList />
+			<MealList source='mine' />
 		</div>
 	);
 }

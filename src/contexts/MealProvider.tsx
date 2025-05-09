@@ -6,6 +6,7 @@ import { createContext, useContext, useReducer } from 'react';
 
 type MealState = {
 	meals: Meal[];
+	myMeals: Meal[];
 };
 
 type MealAction =
@@ -14,6 +15,7 @@ type MealAction =
 
 const initialState: MealState = {
 	meals: mockMeals,
+	myMeals: mockMeals.filter((meal) => meal.isMine),
 };
 
 const MealContext = createContext<{
@@ -26,12 +28,18 @@ const MealContext = createContext<{
 
 const mealReducer = (state: MealState, action: MealAction): MealState => {
 	switch (action.type) {
-		case 'ADD_MEAL':
-			return { ...state, meals: [action.payload, ...state.meals] };
+		case 'ADD_MEAL': {
+			const meal = action.payload;
+			return {
+				meals: [meal, ...state.meals],
+				myMeals: meal.isMine ? [meal, ...state.myMeals] : state.myMeals,
+			};
+		}
 		case 'REMOVE_MEAL':
 			return {
 				...state,
-				meals: state.meals.filter((meal) => meal._id !== action.payload),
+				meals: state.meals.filter((m) => m._id !== action.payload),
+				myMeals: state.myMeals.filter((m) => m._id !== action.payload),
 			};
 		default:
 			return state;

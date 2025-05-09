@@ -207,17 +207,17 @@ const MealForm = () => {
 							ingredients: selectedIngredients,
 							location,
 							expirationDate,
+							isMine: true,
 						},
 					});
 
-					// Reset form
 					setTimeout(() => {
 						form.reset();
 						setImagePreview(null);
 						setSelectedIngredients([]);
 						setIngredientInput('');
 						setSuggestions([]);
-					}, 50);
+					}, 500);
 				}}>
 				Skänk måltid
 			</button>

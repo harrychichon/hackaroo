@@ -9,6 +9,7 @@ export const mockMeals: Meal[] = [
 		ingredients: ['Äpple', 'Blåbär', 'Kyckling', 'Chili'],
 		location: 'Göteborgs Centralstation',
 		expirationDate: '2025-05-13',
+		isMine: true,
 	},
 	{
 		_id: 'd27461e9-d318-4fff-aa3d-9222e6be486e',
@@ -18,6 +19,7 @@ export const mockMeals: Meal[] = [
 		ingredients: ['Majs', 'Kål', 'Zucchini', 'Couscous'],
 		location: 'Hisingen Matbank',
 		expirationDate: '2025-05-09',
+		isMine: false,
 	},
 	{
 		_id: 'bd2d04de-158c-4a69-8d98-0607b705943f',
@@ -27,6 +29,7 @@ export const mockMeals: Meal[] = [
 		ingredients: ['Lök', 'Kyckling', 'Kål', 'Zucchini'],
 		location: 'Lundby Park',
 		expirationDate: '2025-05-12',
+		isMine: false,
 	},
 	{
 		_id: '7016ad4c-49a7-483b-8b25-e0f5e1b610f8',
@@ -36,6 +39,7 @@ export const mockMeals: Meal[] = [
 		ingredients: ['Banan', 'Pasta', 'Ägg', 'Äpple'],
 		location: 'Malmö Gatukök',
 		expirationDate: '2025-05-11',
+		isMine: false,
 	},
 	{
 		_id: '3094d23d-d11d-4469-aadd-b5f43a1f67a7',
@@ -45,6 +49,7 @@ export const mockMeals: Meal[] = [
 		ingredients: ['Morot', 'Banan', 'Kikärter', 'Äpple'],
 		location: 'Angereds Moské',
 		expirationDate: '2025-05-12',
+		isMine: true,
 	},
 	{
 		_id: '3bc5b48a-82f4-4e99-a695-6c5de9fc3ea0',
@@ -54,6 +59,7 @@ export const mockMeals: Meal[] = [
 		ingredients: ['Zucchini', 'Jordgubbar', 'Äpple', 'Banan'],
 		location: 'Frölunda Centrum',
 		expirationDate: '2025-05-09',
+		isMine: false,
 	},
 	{
 		_id: '442c1614-7da9-4a66-85e2-8447a1c89c42',
@@ -63,6 +69,7 @@ export const mockMeals: Meal[] = [
 		ingredients: ['Citronskal', 'Blåbär', 'Chili', 'Svarta bönor'],
 		location: 'Östra Sjukhuset',
 		expirationDate: '2025-05-13',
+		isMine: false,
 	},
 	{
 		_id: '605d8fb0-a66f-469d-a00d-888717aa02e3',
@@ -72,6 +79,7 @@ export const mockMeals: Meal[] = [
 		ingredients: ['Pasta', 'Blåbär', 'Fisk', 'Lök'],
 		location: 'Järntorget Station',
 		expirationDate: '2025-05-14',
+		isMine: false,
 	},
 	{
 		_id: 'bfa8f9f9-6fb3-4463-94f1-275ccdb61cdb',
@@ -81,6 +89,7 @@ export const mockMeals: Meal[] = [
 		ingredients: ['Lök', 'Tofu', 'Banan', 'Fisk'],
 		location: 'Backaplan Hjälpcenter',
 		expirationDate: '2025-05-10',
+		isMine: false,
 	},
 	{
 		_id: '51384326-4b63-4767-b96f-aefd5431232d',
@@ -90,6 +99,7 @@ export const mockMeals: Meal[] = [
 		ingredients: ['Tofu', 'Pasta', 'Zucchini', 'Kål'],
 		location: 'Kortedala Delningskök',
 		expirationDate: '2025-05-13',
+		isMine: false,
 	},
 	{
 		_id: '9b9ccae6-a72f-4291-a9a2-fd22d9da3d25',
@@ -99,6 +109,7 @@ export const mockMeals: Meal[] = [
 		ingredients: ['Tofu', 'Dill', 'Rågbröd', 'Fisk'],
 		location: 'Majorna Upphämtning',
 		expirationDate: '2025-05-14',
+		isMine: false,
 	},
 	{
 		_id: '2012c151-1494-41e2-8d0f-7ad75c5bd5c1',
@@ -108,6 +119,7 @@ export const mockMeals: Meal[] = [
 		ingredients: ['Ost', 'Pasta', 'Rågbröd', 'Zucchini'],
 		location: 'Gamlestaden Matdelning',
 		expirationDate: '2025-05-12',
+		isMine: false,
 	},
 	{
 		_id: 'fa111b49-5ede-490e-abdd-a1871fc44794',
@@ -117,6 +129,7 @@ export const mockMeals: Meal[] = [
 		ingredients: ['Couscous', 'Kikärter', 'Ost', 'Räka'],
 		location: 'Högsbo Bistånd',
 		expirationDate: '2025-05-12',
+		isMine: false,
 	},
 	{
 		_id: '1c1e3ed7-ce58-4f2e-89bb-00772ae979ac',
@@ -126,6 +139,7 @@ export const mockMeals: Meal[] = [
 		ingredients: ['Grädde', 'Morot', 'Ris', 'Tomat'],
 		location: 'Linné Delningspunkt',
 		expirationDate: '2025-05-14',
+		isMine: false,
 	},
 	{
 		_id: 'bec43a90-fd2d-4aad-8732-757980d86951',
@@ -135,6 +149,7 @@ export const mockMeals: Meal[] = [
 		ingredients: ['Blåbär', 'Lök', 'Citronskal', 'Kål'],
 		location: 'Nordstan Matstöd',
 		expirationDate: '2025-05-11',
+		isMine: false,
 	},
 	{
 		_id: 'a9253348-bbc6-48b1-873e-73cf9a845d48',
@@ -144,6 +159,7 @@ export const mockMeals: Meal[] = [
 		ingredients: ['Ägg', 'Jordgubbar', 'Ost', 'Kyckling'],
 		location: 'Masthugget Popup',
 		expirationDate: '2025-05-09',
+		isMine: false,
 	},
 	{
 		_id: '9e512410-a900-445c-a707-47b8d847c988',
@@ -153,6 +169,7 @@ export const mockMeals: Meal[] = [
 		ingredients: ['Gurka', 'Majs', 'Morot', 'Tomat'],
 		location: 'Biskopsgården Truck',
 		expirationDate: '2025-05-13',
+		isMine: false,
 	},
 	{
 		_id: '3d87bcde-7ab9-4dab-993a-bbe3ab75a0d1',
@@ -162,6 +179,7 @@ export const mockMeals: Meal[] = [
 		ingredients: ['Äpple', 'Kål', 'Couscous', 'Gurka'],
 		location: 'Redbergsplatsen',
 		expirationDate: '2025-05-13',
+		isMine: false,
 	},
 	{
 		_id: 'd2173bc8-074d-4378-88c2-ae2669901615',
@@ -171,6 +189,7 @@ export const mockMeals: Meal[] = [
 		ingredients: ['Ägg', 'Chili', 'Zucchini', 'Äpple'],
 		location: 'Kålltorp BoxDrop',
 		expirationDate: '2025-05-12',
+		isMine: false,
 	},
 	{
 		_id: '1e4a6a7e-2e88-4d8b-abda-ad30d4ab34fb',
@@ -180,5 +199,6 @@ export const mockMeals: Meal[] = [
 		ingredients: ['Tofu', 'Tomat', 'Räka', 'Banan'],
 		location: 'Slottskogen DelaMat',
 		expirationDate: '2025-05-13',
+		isMine: false,
 	},
 ];

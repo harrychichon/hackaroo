@@ -8,4 +8,5 @@ export type Meal = {
 	image: string;
 	location: string;
 	expirationDate: string;
+	isMine?: boolean;
 };

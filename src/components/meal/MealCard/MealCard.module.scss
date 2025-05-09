@@ -1,9 +1,10 @@
 @use '@/styles/variables' as *;
 
 .mealCard {
+	position: relative;
 	width: 92vw;
 	max-width: 360px;
-	height: 520px;
+	height: 720px;
 	background: rgba(255, 255, 255, 0.781);
 	backdrop-filter: blur(18px) saturate(180%);
 	-webkit-backdrop-filter: blur(18px) saturate(180%);
@@ -12,7 +13,6 @@
 	box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08),
 		0 0 0 1px rgba(255, 255, 255, 0.2) inset;
 	color: #222;
-	padding: 1.2rem;
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
@@ -20,14 +20,19 @@
 	box-sizing: border-box;
 	overflow: hidden;
 	transition: transform 0.35s ease, box-shadow 0.35s ease;
-
+	padding: 1.5rem;
+	gap: 1rem;
+	transition: filter 0.6s ease, opacity 0.6s ease;
 	&:hover {
 		transform: perspective(800px) rotateX(1.5deg) rotateY(-1.5deg) scale(1.015);
 		box-shadow: 0 16px 32px rgba(0, 0, 0, 0.15),
 			0 0 0 1px rgba(255, 255, 255, 0.25) inset;
 	}
 }
-
+.claimed {
+	filter: grayscale(0.2) brightness(0.9);
+	opacity: 0.3;
+}
 .header {
 	padding-bottom: 1rem;
 	border-image: linear-gradient(90deg, #d2ff05, #05ff32) 1;
@@ -50,7 +55,8 @@
 	height: 180px;
 	border-radius: 1rem;
 	overflow: hidden;
-	margin-bottom: 1rem;
+	margin-bottom: 2rem;
+	margin-top: 1rem;
 	box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
 	position: relative;
 
@@ -132,8 +138,16 @@
 	}
 }
 
+.topBar {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	justify-items: flex-end;
+	width: 100%;
+}
+
 .removeBtn {
-	position: absolute;
+	position: static;
 	top: 0.15rem;
 	right: 0.15rem;
 	background: none;
@@ -154,4 +168,94 @@
 	&:active {
 		transform: scale(0.95);
 	}
+}
+
+.ownerBadge {
+	position: static;
+	top: 1.3rem;
+	left: 0.75rem;
+	background: #d2ff05;
+	color: #000;
+	font-size: 0.75rem;
+	font-weight: bold;
+	padding: 0.3rem 0.75rem;
+	border-radius: 999px;
+	box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+	z-index: 10;
+}
+
+.wishBtn {
+	background: #05ff32;
+	color: #000;
+	padding: 0.5rem 1rem;
+	border-radius: 999px;
+	font-weight: bold;
+	border: none;
+	cursor: pointer;
+	font-size: 0.9rem;
+	box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+	transition: transform 0.2s ease;
+
+	&:hover {
+		transform: translateY(-2px);
+		box-shadow: 0 4px 12px rgba(5, 255, 50, 0.3);
+	}
+
+	&:active {
+		transform: scale(0.97);
+	}
+}
+
+.claimArea {
+	position: relative;
+	height: 2.75rem;
+	width: 100%;
+	margin-top: 1rem;
+}
+.wishBtn,
+.claimedText {
+	position: absolute;
+	inset: 0;
+	width: 100%;
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	transition: opacity 0.3s ease, transform 0.3s ease;
+}
+.wishBtn {
+	background: #05ff32;
+	color: #000;
+	font-weight: bold;
+	border-radius: 999px;
+	border: none;
+	cursor: pointer;
+	font-size: 0.9rem;
+	box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+	opacity: 1;
+}
+.claimedCard {
+	opacity: 0.6;
+	transform: scale(0.97);
+	transition: all 0.4s ease;
+	pointer-events: none;
+	filter: blur(1px);
+}
+.claimedText {
+	color: #05ff32;
+	font-weight: bold;
+	opacity: 0;
+	transform: translateY(10px);
+	pointer-events: none;
+}
+.claimArea:has(.claimedText) .wishBtn {
+	opacity: 0;
+	transform: translateY(-10px);
+	pointer-events: none;
+}
+
+.claimArea:has(.claimedText) .claimedText {
+	opacity: 1;
+	transform: translateY(0);
+	pointer-events: auto;
 }

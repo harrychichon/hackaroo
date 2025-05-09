@@ -15,8 +15,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-	title: 'MealShare',
-	description: 'A platform for sharing meals',
+	title: 'MatResQ',
+	description: 'Maten du inte behöver – till någon som gör det.',
 };
 
 export default function RootLayout({

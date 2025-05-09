@@ -1,21 +1,24 @@
-'use client';
-
 import { useMealContext } from '@/contexts/MealProvider';
 import MealCard from '../MealCard/MealCard';
 import styles from './MealList.module.scss';
 
-const MealList = () => {
-	const { state } = useMealContext();
+type MealListProps = {
+	source: 'all' | 'mine';
+};
 
-	if (state.meals.length === 0) {
-		return <p className={styles.empty}>No meals added yet.</p>;
+const MealList = ({ source = 'all' }: MealListProps) => {
+	const { state } = useMealContext();
+	const meals = source === 'mine' ? state.myMeals : state.meals;
+
+	if (meals.length === 0) {
+		return <p>Inga måltider hittades.</p>;
 	}
 
 	return (
 		<section className={styles.mealList}>
-			{state.meals.map((meal, index) => (
+			{meals.map((meal) => (
 				<MealCard
-					key={index}
+					key={meal._id}
 					{...meal}
 				/>
 			))}
